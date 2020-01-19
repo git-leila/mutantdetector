@@ -23,8 +23,7 @@ public class DetectorRestController {
 	/*petición POST -> cuando se llame a la url 	http://127.0.0.1:8080/mutant/  
 	 * body  aplication/json {"dna":["ATGCGA","CAGTGC","TTATTT","AGACGG","GCGTCA","TCACTT"]}       */
 	@PostMapping("/mutant")
-	public ResponseEntity detector(@RequestBody Dna dna) {
-		
+	public ResponseEntity detector(@RequestBody Dna dna) {		
 		//Este metodo busca si existe mas de 1 secuencia 		
 		if(detectorService.isMutant(dna)) {
 			dna.setMutant(true);

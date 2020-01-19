@@ -1,0 +1,1 @@
+java -jar  -Xms128m -Xmx256m -Dspring.profiles.active=local mutant-0.0.1-SNAPSHOT.jar &
