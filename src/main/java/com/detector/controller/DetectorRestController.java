@@ -25,16 +25,16 @@ public class DetectorRestController {
 	@PostMapping("/mutant")
 	public ResponseEntity detector(@RequestBody Dna dna) {		
 		//Este metodo busca si existe mas de 1 secuencia 		
-		if(detectorService.isMutant(dna)) {
+		if(this.detectorService.isMutant(dna)) {
 			dna.setMutant(true);
 			dna.setDnaToDb();
-			detectorService.save(dna);
+			this.detectorService.save(dna);
 			return new ResponseEntity(HttpStatus.OK);
 		}			
 		else {
 			dna.setMutant(false);
 			dna.setDnaToDb();
-			detectorService.save(dna);
+			this.detectorService.save(dna);
 			return new ResponseEntity(HttpStatus.FORBIDDEN);
 		}
 		

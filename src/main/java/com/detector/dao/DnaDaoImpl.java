@@ -15,9 +15,10 @@ public class DnaDaoImpl implements DnaDao{
 	private EntityManager entityManager;
 	
 	@Override
-	public void save(Dna dna) {
+	public Dna save(Dna dna) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.saveOrUpdate(dna);	
+		currentSession.saveOrUpdate(dna);
+		return dna;
 	}
 	
 	@Override

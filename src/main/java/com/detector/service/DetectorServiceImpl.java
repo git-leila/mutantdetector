@@ -27,34 +27,18 @@ public class DetectorServiceImpl implements DetectorService {
 	    	else if(busquedaOblicua(matrizDna)){
 	    		return true;		
 	    	}
+	    	else return false;
 	    }
-	    return false;
+	    
 	}
 	
 	public static boolean busquedaHorizontal(Dna dna) {
-	    int size = dna.length();
-	    for(int i=0; i<size; i++){
+	    
+	    for(int i=0; i<dna.length(); i++){
 	        String str = dna.getFila(i);
-	        if(str.contains("AAAA")){
-	        	encontrado++;
-	        	if(encontrado==2)
-	          		return true;
-	        }
-	        else if(str.contains("TTTT")){
-				encontrado++;
-	        	if(encontrado==2)
-	          		return true;
-	        }
-	        else if(str.contains("CCCC")){
-				encontrado++;
-	        	if(encontrado==2)
-	          		return true;
-	        }
-	        else if(str.contains("GGGG")){
-				encontrado++;
-	        	if(encontrado==2)
-	          		return true;
-	        }
+	        if(str.contains("AAAA")||str.contains("TTTT")||str.contains("CCCC")||str.contains("GGGG"))
+        		encontrado++;
+	        if(encontrado==2)return true;	        
 	    }    
 	    return false;
 	}
@@ -66,115 +50,89 @@ public class DetectorServiceImpl implements DetectorService {
 	        
 	        if(arr[row][col].equals(arr[row+1][col])){
 	          ocurrencia++;
-	          if(ocurrencia==4){//encuentra palabra
+	          if(ocurrencia==4)//encuentra palabra
 	         	encontrado++;
-	        	if(encontrado==2)
-	          		break;
-	          }            
 	        }
-	        else ocurrencia=1;
-	      }
+	        else ocurrencia=1; //son distintos reseteo ocurrencia
+	        
+	        if(encontrado==2)return true;
+	      }//end for interno
 
-	      if(encontrado==2){
-	        return true;
-	      }
-	    }
-	    return false;    
-	    
+	    }//end for externo
+	    return false;
 	}
 	
-	  public static boolean busquedaOblicua(String[][] arr) {		  	
-		  	int k=0;
-		    while(k<=(arr.length-4)){
-		      int i=k;
-		      int j=0;
-		      int ocurrencia_inf=1;
-		      int ocurrencia_sup=1;
-
-		      while(i<(arr.length-1) && j<(arr.length-1)){
+	public static boolean busquedaOblicua(String[][] arr) {		  	
+		int k=0;
+		while(k<=(arr.length-4) && (encontrado<2)){
+			int i=k; int j=0; int ocurrencia_inf=1; int ocurrencia_sup=1;
+			while(i<(arr.length-1) && j<(arr.length-1)&& (encontrado<2) ){
 		        //principal inferior
 				if(arr[i][j].equals(arr[i+1][j+1])){            
 					ocurrencia_inf++;
-		          	if(ocurrencia_inf==4){//encuentra palabra
+		          	if(ocurrencia_inf==4)//encuentra palabra
 		         		encontrado++;
-		        		if(encontrado==2)
-		          			break;
-		          	}            
 		        }
 		        else ocurrencia_inf=1;
-		        			
-		        //principal superior
+
+				//principal superior
 		        if(i!=j){ //no evalua la diagonal principal porque evaluo anteriormente
 			        if(arr[j][i].equals(arr[j+1][i+1])){            
 						ocurrencia_sup++;            
-						if(ocurrencia_sup==4){//encuentra palabra
+						if(ocurrencia_sup==4)//encuentra palabra
 							encontrado++;
-						    if(encontrado==2)
-						    	break;
-						}            
 					}
 					else ocurrencia_sup=1;
-				}
+				}		        
 		        i++;
 		        j++;
-		      }	//end while
-		      if(encontrado==2){
-		        return true;
-		      }
-		      k++;
-		    }
+		    }//end while
+		    k++;
+		}//end primer while
 
 			//secundaria inferior (abajo -> arriba)
-		    int s=0;
-		    while(s<=(arr.length-4)){
-		      int r=s;
-		      int t=arr.length-1;
-		      int ocurrencia_sec_inf=1;
-		      while(t>0 && r<(arr.length-1)){
-		      	if(arr[t][r].equals(arr[t-1][r+1])){
-		        	ocurrencia_sec_inf++;            
-		          if(ocurrencia_sec_inf==4){//encuentra palabra
-		            encontrado++;
-		            if(encontrado==2)
-		              break;
-		          }            
+		int s=0;
+		while(s<=(arr.length-4) && (encontrado<2)){
+			int r=s;
+		    int t=arr.length-1;
+		    int ocurrencia_sec_inf=1;
+		    while(t>0 && r<(arr.length-1) && (encontrado<2)){
+		    	if(arr[t][r].equals(arr[t-1][r+1])){
+		    		ocurrencia_sec_inf++;            
+		      		if(ocurrencia_sec_inf==4)//encuentra palabra
+		      			encontrado++;            
 		        }
 		        else ocurrencia_sec_inf=1;                                   
-		        r++;
+		      	r++;
 		        t--;
-		      }      
-		      if(encontrado==2){
-		        return true;
-		      }
-		      s++;
-		    }
+		    }  //end while interno    
+		    s++;
+		}//end while externo
 
-		    //secundaria superior (abajo hacia arriba)
-		    int m=arr.length-2;//no tomo la diagonal secundaria porque ya la tome anteriormente
-		    while(m>=3){  //si es menor que ya no encontrará secuencia    
-		      int n=m;
-		      int u=0;
-		      int ocurrencia_sec_sup=1;
-		      while(u<(arr.length-1) && n>0){        
-		        if(arr[n][u].equals(arr[n-1][u+1])){
-		        	ocurrencia_sec_sup++;            
-		          if(ocurrencia_sec_sup==4){//encuentra palabra
-		            encontrado++;
-		              if(encontrado==2)
-		                break;
-		          }            
+		//secundaria superior (abajo hacia arriba)
+		int m=arr.length-2;//no tomo la diagonal secundaria porque ya la tome anteriormente
+		while(m>=3 && (encontrado<2)){  //si es menor que ya no encontrará secuencia    
+			int n=m;
+		    int u=0;
+		    int ocurrencia_sec_sup=1;
+		    while(u<(arr.length-1) && n>0 && (encontrado<2)){        
+		    	if(arr[n][u].equals(arr[n-1][u+1])){
+		    		ocurrencia_sec_sup++;            
+		        	if(ocurrencia_sec_sup==4)//encuentra palabra
+		        		encontrado++;         
 		        }
-		        else ocurrencia_sec_sup=1;                                   
+		        else ocurrencia_sec_sup=1; 
 		        u++;
 		        n--;        
-		      }
-		      if(encontrado==2){
-		        return true;
-		      }
-		      m--;
-		    }	   
-		  return false;
-	  }	
+		    }//end while interno
+		    m--;
+		}//end while externo	   
+		    
+		if(encontrado==2)
+			return true;		  
+		else 
+			return false;
+	}	
 
 	public static String[][] completarMatriz( Dna matriz) {	   
 	    int size=matriz.length();

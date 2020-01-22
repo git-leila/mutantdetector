@@ -1,5 +1,6 @@
 package com.detector.utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -17,4 +18,5 @@ public class ResourceReader {
             throw new UncheckedIOException(e);
         }
     }
+	
 }
