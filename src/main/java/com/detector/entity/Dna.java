@@ -28,13 +28,6 @@ public class Dna {
 
 	public Dna() {
     }
-
-    public Dna(int id, String[] filas, boolean mutant) {
-    	this.id = id;    	
-        this.dna=filas;
-        this.mutant=mutant;
-        this.bd_dna= Arrays.toString(this.dna);
-    }
     
 	public void setDnaToDb() {
 		this.bd_dna= Arrays.toString(this.dna);

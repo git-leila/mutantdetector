@@ -1,0 +1,60 @@
+/* SQL Manager Lite for H2 TEST                              5.7.2.52112 */
+/* ------------------------------------------------------------------- */
+/* Host     : localhost                                                */
+/* Port     : 3306                                                     */
+/* Database : form1                                                    */
+
+
+
+/* Data for the `dna` table  (LIMIT 0,500) */
+
+INSERT INTO `dna` (`id_dna`, `secuencia_dna`, `mutant_dna`) VALUES
+  (1,'[GTTATAT, TAGACGG, AGCGTCA, TTCACTT, TATGCGA, ACAGTGC, ACAGTGT]',0),
+  (2,'[ACAGTAT, GTTTTGT, TATGCGA, TAGACGG, ACAGTGC, AGCGTCA, TTCACTT]',1),
+  (3,'[AAAATAT, GTATTGT, TATGCGA, TAGTCGG, ACAGTGC, AGCGTTA, TTCACTT]',1),
+  (4,'[TATGCGA, AGGATAT, GTATAGT, TAGACGG, ACCGTGC, AGCCGTA, TTCACGG]',1),
+  (5,'[AGGGACA, TACCCCG, AGCGTCA, TTCCCTA, GGGAAAA, ACAAAGA, CACGTAA]',1),
+  (6,'[TGGCTA, CAGTGC, TTAGGT, ATAAGG, CCTCTA, TCATTG]',1),
+  (7,'[ATGCGA, CAGTAC, TTAAGT, AGGAGG, CACCTA, ACACTG]',0),
+  (8,'[TCTTTT, ATGCGA, CAGTGC, TTATGT, AGAAGG, CCCCTA]',1),
+  (9,'[ATGCTA, CAGTGC, TTATGT, AGAAGG, CCCCTA, TCACTG]',1),
+  (10,'[TTAAGT, CACCTA, AGGAGG, ATGCGA, CAGTAC, ACACTG]',0),
+  (11,'[TAAAAT, CACCTA, AGGCGG, ATGCGA, CAGCAC, AAACCC]',1),
+  (12,'[GGAAAT, CAGGTA, AGGGGG, TAGCGA, CCCGAC, TTTCCC]',1),
+  (13,'[CAGGTA, GGAAAA, AGGGGG, TAGCGA, GACCCC, GATGAT]',1),
+  (14,'[TCACC, GGGCA, TACCG, ATACT, ATACT]',0),
+  (15,'[TCACC, GGGCT, GACCT, GTACT, GTACT]',1),
+  (16,'[AAACC, GGGCT, AACCT, GTACA, GTACT]',0),
+  (17,'[GATAA, TAGAC, GAGAG, CATAA, GGGGA]',1),
+  (18,'[GATTT, TAAGC, GAGAG, CGTAA, GGGGA]',1),
+  (19,'[GCCTT, GTATC, CGTCA, CGAAA, TTAAC]',0),
+  (20,'[CAGGT, TCTCC, TAACG, CACTT, TCCGT]',0),
+  (21,'[CCAGA, CCAAT, TACCC, TAACC, CGGAG]',0),
+  (22,'[AGTTG, GACCG, AAAAA, GCGGG, CTTTT]',1),
+  (23,'[TTAT, CATT, TGAA, CACC]',0),
+  (24,'[CATT, TTTT, TGAA, CCCC]',1),
+  (25,'[ATAG, CTTG, TTGG, GTAG]',1),
+  (26,'[GCGC, TGCT, ACGA, CCGG]',1),
+  (27,'[AACT, GCTG, AGGA, GGTG]',0),
+  (28,'[CGT, AAC, TTA]',0),
+  (29,'[CGA, CCA, GCT]',0),
+  (30,'[AT, GT]',0),
+  (31,'[A]',0),
+  (32,'[C]',0),
+  (33,'[T]',0),
+  (34,'[G]',0),
+  (35,'[GA, GA]',0),
+  (36,'[GAT, CAT, CGT]',0),
+  (37,'[GATA, CATA, CGTT, TTGT]',0),
+  (38,'[GATA, CATA, CGTT, TTTT]',1),
+  (39,'[CCCA, TTTA, GGGT, AAAT]',0),
+  (40,'[TAGG, TAGG, GATT, CATT]',0),
+  (41,'[TAAGG, CTAGG, GAAAC, TGACT, CCAAG]',0),
+  (42,'[TA, CT]',0),
+  (43,'[AA, AA]',0),
+  (44,'[AATTA, TAGAT, GGGCC, TGATG, AAGGC]',0);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -158,6 +158,7 @@ public class DetectorServiceImpl implements DetectorService {
 		long cant_mutant=dnaDAO.countMutant(1);
 		long cant_human=dnaDAO.countMutant(0);
 		float ratio=(float)cant_mutant/cant_human;
+		
 		Estadisticas e = new Estadisticas((int)cant_mutant, (int)cant_human, ratio);
 		
 		return e;
