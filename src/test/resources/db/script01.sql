@@ -52,7 +52,11 @@ INSERT INTO `dna` (`id_dna`, `secuencia_dna`, `mutant_dna`) VALUES
   (41,'[TAAGG, CTAGG, GAAAC, TGACT, CCAAG]',0),
   (42,'[TA, CT]',0),
   (43,'[AA, AA]',0),
-  (44,'[AATTA, TAGAT, GGGCC, TGATG, AAGGC]',0);
+  (44,'[AATTA, TAGAT, GGGCC, TGATG, AAGGC]',0),
+  (45,'[GACA, CCGA, ATCA, GCGA]',0),
+  (46,'[GGTG, GCTG, GGGC, TCCT]',0),
+  (47,'[ATCG, TAGG, GCGT, TATA]',0),
+  (48,'[TCAG, TGCC, AAAC, TCTG]',0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
